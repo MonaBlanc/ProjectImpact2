@@ -37,4 +37,8 @@ public class Ennemis {
     public String getElementEnnemi(){
         return element;
     }
+
+    public int getAttaque() {
+        return attaque_base;
+    }
 }
