@@ -262,14 +262,14 @@ public class Evenement implements GestionCombat {
                 attaque(NomHeros, cible);
                 cible.getPV();
                 if(estVaincu("Cible")==false){
-                    défense(NomHeros, cible);
+                   défense(NomHeros, cible);
                 }
                 break;
             default :{
                 break;
             }
         }
-        }while (estVaincu("Ennemi") != true || estVaincu("Héros") != true);
+        }while(estVaincu("Ennemi")!=true && estVaincu("Héros")!=true );
 
         if (estVaincu("Ennemi") == true) {
             System.out.println("Vous avez gagné le combat ! \n\n");
