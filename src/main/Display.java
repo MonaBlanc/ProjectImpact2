@@ -13,7 +13,7 @@ public class Display {
     }
 
     public void displayOpening() {
-        String opening = "Un archipel isole. L'Ouest lointain de Teyvat. Surpasses les eclairs intarissable d'Inazuma et fais un premier pas vers ces iles d'erables rouges et de cerisiers. Il va falloir franchir des forets et montagnes pleines de secrets avant de pouvoir temoigner de l'Eternite poursuivie par son Excellence, la grande Raiden Shogun.";
+        String opening = "Un archipel isole. L'Ouest lointain de Teyvat. Surpasses les éclairs intarissables d'Inazuma et fais un premier pas vers ces îles d'érables rouges et de cerisiers. Il va falloir franchir des forêts et montagnes pleines de secrets avant de pouvoir témoigner de l'Eternité poursuivie par son Excellence, la grande Raiden Shogun.";
         String wrappedOpening = wrapTexte(opening);
         System.out.println(wrappedOpening);
     }
@@ -39,7 +39,7 @@ public class Display {
     }
 
         public String wrapTexte(String texte) {
-        final int largeurMax = 70;
+        final int largeurMax = 99;
         String[] separationTexte = texte.split("");
         String texteFinal = "";
         String ligne = "";
@@ -63,7 +63,7 @@ public class Display {
     }
 
     public void clear(){
-        for(int i = 0; i < 20; i++) //fonction clear
+        for(int i = 0; i < 15; i++) //fonction clear
         {
             System.out.println("\b");
         }

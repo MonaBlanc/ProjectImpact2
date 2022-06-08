@@ -41,6 +41,11 @@ public class Heros {
             return pv_total;
         }
 
+        public void setPV(int newPV){
+            pv_total = newPV;
+            return;
+        }
+
         //TODO : Chercher pourquoi l'élément est nul
         public String getElement(){
             return element;

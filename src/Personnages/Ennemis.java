@@ -29,6 +29,10 @@ public class Ennemis {
     public int getPV(){
         return pv_base;
     }
+    public void setPV(int newPV){
+        pv_base = newPV;
+        return;
+    }
 
     public String getElementEnnemi(){
         return element;

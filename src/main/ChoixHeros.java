@@ -55,6 +55,10 @@ public class ChoixHeros {
                             System.out.println("Retour au menu de selection.");
                             selection();
                             break;
+                        default :
+                            System.out.println("Merci de rentrer une valeur valide. Retour au menu de sélection.\n\n");
+                            selection();
+                            break;
                     }
                     break;
                 case 'a':
@@ -78,6 +82,10 @@ public class ChoixHeros {
                             return Yoimiya;
                         case '3':
                             System.out.println("Retour au menu de selection.");
+                            selection();
+                            break;
+                        default :
+                            System.out.println("Merci de rentrer une valeur valide. Retour au menu de sélection.\n\n");
                             selection();
                             break;
                     }
@@ -106,6 +114,10 @@ public class ChoixHeros {
                             System.out.println("Retour au menu de selection.");
                             selection();
                             break;
+                        default :
+                            System.out.println("Merci de rentrer une valeur valide. Retour au menu de sélection.\n\n");
+                            selection();
+                            break;
                     }
                     break;
                 case 'e':
@@ -130,6 +142,10 @@ public class ChoixHeros {
 
                         case '3':
                             System.out.println("Retour au menu de selection.\n\n");
+                            selection();
+                            break;
+                        default :
+                            System.out.println("Merci de rentrer une valeur valide. Retour au menu de sélection.\n\n");
                             selection();
                             break;
                     }
@@ -157,7 +173,14 @@ public class ChoixHeros {
                             System.out.println("Retour au menu de selection.\n\n");
                             selection();
                             break;
+                        default :
+                            System.out.println("Merci de rentrer une valeur valide. Retour au menu de sélection.\n\n");
+                            selection();
+                            break;
                     }
+                default :
+                    System.out.println("Merci de rentrer une valeur valide.\n\n");
+
             }
 
         } while (classeChoisie != 'c' && classeChoisie != 'a' && classeChoisie != 'm' && classeChoisie != 'e' && classeChoisie != 'l');

@@ -33,6 +33,11 @@ public class EntréeMontagne {
                 premierCombat.debutCombat(Choisi, cible);
         }
 
+        String finCombat1 = "Vous sentez que  Gardez votre détermination ! La shogun se trouve surement ici. Il est d'ailleurs important de rester concentré, une ombre s'avance à toute vitesse sur vous !";
+        String wrappedfinCombat1 = wrapTexte(finCombat1);
+        System.out.println(wrappedfinCombat1);
+
+
 
     }
 
