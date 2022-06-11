@@ -247,6 +247,7 @@ public class Evenement implements GestionCombat {
         int choixDebut;
         do{
         //identifer le héros
+            //TODO : regarder pour un mode garde qui régen
         System.out.println("\n\nQue souhaitez vous faire ? \n [1] - Afficher mes statistiques \n [2] - Afficher les statistiques de l'ennemi \n [3] - Attaquer\n");
         choixDebut = Integer.parseInt(selectionUser.nextLine());
 

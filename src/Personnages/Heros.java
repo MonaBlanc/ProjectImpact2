@@ -22,13 +22,13 @@ public class Heros {
             this.niveau = niveau;
             this.arme = arme;
             this.element = element;
-            attaque_total = 40 + arme.attaque_arme; // + dégât de l'arme
-            pv_total = 300 + arme.pv_arme; // + dégât de l'arme
-            défense_total = 20 + arme.défense_arme; // + dégât de l'arme
-            maîtriseElem_total = 0 + arme.maîtriseElem_arme; // + dégât de l'arme
+            attaque_total = 40 + arme.attaque_arme ;
+            pv_total = 300 + arme.pv_arme;
+            défense_total = 20 + arme.défense_arme;
+            maîtriseElem_total = 0 + arme.maîtriseElem_arme;
         }
 
-        //TODO : Fonction affichant les caractéristiques
+
         public String toString() {
             return nom;
         }
@@ -46,7 +46,7 @@ public class Heros {
             return;
         }
 
-        //TODO : Chercher pourquoi l'élément est nul
+
         public String getElement(){
             return element;
         }
