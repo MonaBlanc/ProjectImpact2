@@ -5,6 +5,7 @@ public class Heros {
         protected String nom;
         protected String element;
         public int niveau;
+        public int exp;
         protected int attaque_base;
         protected int pv_base;
         protected int défense_base;
@@ -12,6 +13,8 @@ public class Heros {
         protected Arme arme; //changera les stats en fonction de l'arme
         protected int attaque_total;
         protected int pv_total;
+        protected int pv_total_init;
+
         protected int défense_total;
         protected int maîtriseElem_total;
 
@@ -24,6 +27,7 @@ public class Heros {
             this.element = element;
             attaque_total = 40 + arme.attaque_arme ;
             pv_total = 300 + arme.pv_arme;
+            pv_total_init = 300 + arme.pv_arme;
             défense_total = 20 + arme.défense_arme;
             maîtriseElem_total = 0 + arme.maîtriseElem_arme;
         }
@@ -40,12 +44,21 @@ public class Heros {
         public int getPV(){
             return pv_total;
         }
+        public int getPVInit(){
+        return pv_total_init;
+    }
 
         public void setPV(int newPV){
             pv_total = newPV;
-            return;
         }
 
+    public void setAttaque(int newAttaque){
+        attaque_total = newAttaque;
+    }
+
+    public void setMaitriseElem(int newME){
+        maîtriseElem_total = newME;
+    }
 
         public String getElement(){
             return element;
@@ -55,4 +68,7 @@ public class Heros {
             return attaque_total;
         }
 
+    public int getmaîtriseElem() {
+        return maîtriseElem_total;
     }
+}

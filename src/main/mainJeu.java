@@ -13,6 +13,7 @@ public class mainJeu {
             clear();
             Display EcranTitre = new Display();
             EcranTitre.displayOpening();
+            System.out.println("\n[APPUYER SUR ENTREE]");
             scanner.nextLine();
             Heros selection = EcranTitre.displaySelection();
             EcranTitre.displayMenu(selection);

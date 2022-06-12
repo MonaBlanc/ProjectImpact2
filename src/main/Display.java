@@ -74,24 +74,19 @@ public class Display {
         int choix = 0;
 
         System.out.println("Quel sera votre choix ?");
-        System.out.println("1 - Contourner par la foret sifflante");//histoire dont vous êtes le héros
-        System.out.println("2 - Franchir la montagne silencieuse"); //donjon
-        System.out.println("3 - Je veux changer de heros");
-        System.out.println("4 - Je veux partir. ");
+        System.out.println("[1] - Franchir la montagne silencieuse"); //donjon
+        System.out.println("[2] - Je veux changer de heros");
+        System.out.println("[3] - Je veux partir. ");
         System.out.println("Taper votre choix :                                       ");
         choix=Integer.parseInt(sc.nextLine());// <--- ligne modifiée
         switch (choix) {
             case 1 -> {
                 clear();
-                displayBeginningForet();
-            }
-            case 2 -> {
-                clear();
                 displayBeginningMontagne();
                 EntréeMontagne Arrivée = new EntréeMontagne(Choisi);
                 Arrivée.arrivee(Choisi);
             }
-            case 3 -> {
+            case 2 -> {
                 clear();
                 System.out.println("Ecran de selection du heros");
                 ChoixHeros premierChoix = new ChoixHeros();
@@ -99,7 +94,7 @@ public class Display {
 
                 displayMenu(Choisi);
             }
-            case 4 -> {
+            case 3 -> {
                 clear();
                 System.out.println("En esperant vous revoir bientot, voyageur.");
             }

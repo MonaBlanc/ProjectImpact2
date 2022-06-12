@@ -41,4 +41,8 @@ public class Ennemis {
     public int getAttaque() {
         return attaque_base;
     }
+
+    public int getmaîtriseElem() {
+        return maîtriseElem_base;
+    }
 }
