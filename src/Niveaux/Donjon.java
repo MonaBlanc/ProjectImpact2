@@ -113,11 +113,11 @@ public class Donjon extends EntréeMontagne {
         Ennemis fatui1 = new Ennemis("fatui", 4, "geo");
         Evenement premierCombat = new Evenement(Choisi, fatui1, artefactChoisi);
         premierCombat.debutCombat(Choisi, fatui1);
-        System.out.println("\nPremier sbire vaincu ! Restez sur vos gardes, un autre approche...\n\n");
+        System.out.println("\nPremier Fatui vaincu ! Restez sur vos gardes, cette fois il en reste deux...\n\n");
         Ennemis fatui2 = new Ennemis("fatui", 4, "geo");
         Evenement deuxiemeCombat = new Evenement(Choisi, fatui2, artefactChoisi);
         deuxiemeCombat.debutCombat(Choisi, fatui2);
-        System.out.println("\nPremier sbire vaincu ! Restez sur vos gardes, un autre approche...\n\n");
+        System.out.println("\nLe dernier Fatui approche...\n\n");
         Ennemis fatui3 = new Ennemis("sbire", 4, "geo");
         Evenement troisiemeCombat = new Evenement(Choisi, fatui3, artefactChoisi);
         troisiemeCombat.debutCombat(Choisi, fatui3);
