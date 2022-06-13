@@ -16,10 +16,10 @@ public class Ennemis {
         this.nom = nom;
         this.niveau = niveau;
         this.element = element;
-        attaque_base = 20 + niveau; // + dégât de l'arme
+        attaque_base = 15 + niveau; // + dégât de l'arme
         pv_base = 290 + niveau; // + dégât de l'arme
         défense_base = 5 + niveau; // + dégât de l'arme
-        maîtriseElem_base = 30 + niveau; // + dégât de l'arme
+        maîtriseElem_base = 5 + niveau; // + dégât de l'arme
     }
 
     public void displayStats(){
@@ -44,5 +44,9 @@ public class Ennemis {
 
     public int getmaîtriseElem() {
         return maîtriseElem_base;
+    }
+
+    public String getElement() {
+        return element;
     }
 }

@@ -9,10 +9,11 @@ import static main.Clear.clear;
 public class EntréeMontagne {
 
     public EntréeMontagne(Heros Héros){
-        Heros Choisi = Héros;
+
     }
 
-    public void arrivee(Heros Choisi) {
+    public void arrivee(Heros Héros) {
+        Donjon Shogun = new Donjon(Héros);
         int choix;
         int choixNiveau1;
         int choixNiveau2;
@@ -32,13 +33,13 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Choisi);
+                retourEcran.displayMenu(Héros);
             }
             case '2' -> {
                 System.out.println("Vous engagez un combat ! Que la chance soit avec vous, cher voyageur.\n\n");
                 Ennemis cible = new Ennemis("blob", 2, "anemo");
-                Evenement premierCombat = new Evenement(Choisi, cible, null);
-                premierCombat.debutCombat(Choisi, cible);
+                Evenement premierCombat = new Evenement(Héros, cible, null);
+                premierCombat.debutCombat(Héros, cible);
             }
         }
 
@@ -53,12 +54,11 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Choisi);
+                retourEcran.displayMenu(Héros);
             }
             case '2' -> {
                 clear();
-                Donjon Shogun = new Donjon(Choisi);
-                Shogun.PremierNiveau(Choisi);
+                Shogun.PremierNiveau(Héros);
             }
         }
 
@@ -73,12 +73,11 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Choisi);
+                retourEcran.displayMenu(Héros);
             }
             case '2' -> {
                 clear();
-                Donjon Shogun = new Donjon(Choisi);
-                Shogun.DeuxiemeNiveau(Choisi);
+                Shogun.DeuxiemeNiveau(Héros);
             }
         }
 
@@ -93,12 +92,11 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Choisi);
+                retourEcran.displayMenu(Héros);
             }
             case '2' -> {
                 clear();
-                Donjon Shogun = new Donjon(Choisi);
-                Shogun.TroisiemeNiveau(Choisi);
+                Shogun.TroisiemeNiveau(Héros);
             }
         }
 
@@ -113,12 +111,11 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Choisi);
+                retourEcran.displayMenu(Héros);
             }
             case '2' -> {
                 clear();
-                Donjon Shogun = new Donjon(Choisi);
-                Shogun.Shogun(Choisi);
+                Shogun.Shogun(Héros);
             }
         }
 

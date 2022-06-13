@@ -6,25 +6,23 @@ import main.Display;
 
 import java.util.Scanner;
 
-public class Donjon extends EntréeMontagne {
+public class Donjon {
     public String artefactChoisi;
     public Donjon(Heros NomHeros) {
-        super(NomHeros);
-        Heros Choisi = NomHeros;
         int pv_init = NomHeros.getPV();
     }
 
-    public void PremierNiveau(Heros Choisi) {
+    public void PremierNiveau(Heros NomHeros) {
         LancerDe LancerDé = new LancerDe();
         int Lancer6 = LancerDé.lancer6();
                 System.out.println("Vous vous engagez dans le premier niveau ! Plus que 3 avant de rencontrer la Shogun..\n\n");
                 Ennemis sbire1 = new Ennemis("sbire", 3, "geo");
-                Evenement premierCombat = new Evenement(Choisi, sbire1, null);
-                premierCombat.debutCombat(Choisi, sbire1);
+                Evenement premierCombat = new Evenement(NomHeros, sbire1, null);
+                premierCombat.debutCombat(NomHeros, sbire1);
                 System.out.println("\nPremier sbire vaincu ! Restez sur vos gardes, un autre approche...\n\n");
                 Ennemis sbire2 = new Ennemis("sbire", 3, "geo");
-                Evenement deuxiemeCombat = new Evenement(Choisi, sbire2, null);
-                deuxiemeCombat.debutCombat(Choisi, sbire2);
+                Evenement deuxiemeCombat = new Evenement(NomHeros, sbire2, null);
+                deuxiemeCombat.debutCombat(NomHeros, sbire2);
                 //TODO : Gestion Défaite + Récompenses
 
         System.out.println("Vous êtes venu à bout du premier niveau ! Avec plus d'expériences votre puissance augmente !");
@@ -39,9 +37,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "SACRIFICIEUR";
+                    break;
                 case 2:
-                    Choisi.setPV(Choisi.getPVInit());
+                    NomHeros.setPV(NomHeros.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 5) {
             System.out.println("SACRIFICIEUR\n");
@@ -51,9 +51,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "SACRIFICIEUR";
+                    break;
                 case 2:
-                    Choisi.setPV(Choisi.getPVInit());
+                    NomHeros.setPV(NomHeros.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 4) {
             System.out.println("COEURDUGARDIEN\n");
@@ -63,9 +65,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "COEURDUGARDIEN";
+                    break;
                 case 2:
-                    Choisi.setPV(Choisi.getPVInit());
+                    NomHeros.setPV(NomHeros.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 3) {
             System.out.println("COEURDUGARDIEN\n");
@@ -75,9 +79,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "COEURDUGARDIEN";
+                    break;
                 case 2:
-                    Choisi.setPV(Choisi.getPVInit());
+                    NomHeros.setPV(NomHeros.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 2) {
             System.out.println("ERUDIT\n");
@@ -87,9 +93,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi =  "ERUDIT";
+                    break;
                 case 2:
-                    Choisi.setPV(Choisi.getPVInit());
+                    NomHeros.setPV(NomHeros.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 1) {
             System.out.println("ERUDIT\n");
@@ -99,9 +107,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi =  "ERUDIT";
+                    break;
                 case 2:
-                    Choisi.setPV(Choisi.getPVInit());
+                    NomHeros.setPV(NomHeros.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         }
     }
@@ -134,9 +144,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "SACRIFICIEUR";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 5) {
             System.out.println("SACRIFICIEUR\n");
@@ -146,9 +158,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "SACRIFICIEUR";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 4) {
             System.out.println("COEURDUGARDIEN\n");
@@ -158,9 +172,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "COEURDUGARDIEN";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 3) {
             System.out.println("COEURDUGARDIEN\n");
@@ -170,9 +186,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "COEURDUGARDIEN";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 2) {
             System.out.println("ERUDIT\n");
@@ -182,9 +200,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi =  "ERUDIT";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 1) {
             System.out.println("ERUDIT\n");
@@ -194,9 +214,12 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi =  "ERUDIT";
+                    break;
+
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         }
 
@@ -220,9 +243,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "SACRIFICIEUR";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 5) {
             System.out.println("SACRIFICIEUR\n");
@@ -232,9 +257,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "SACRIFICIEUR";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 4) {
             System.out.println("COEURDUGARDIEN\n");
@@ -244,9 +271,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "COEURDUGARDIEN";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 3) {
             System.out.println("COEURDUGARDIEN\n");
@@ -256,9 +285,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi = "COEURDUGARDIEN";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 2) {
             System.out.println("ERUDIT\n");
@@ -268,9 +299,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi =  "ERUDIT";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         } else if (Lancer6 == 1) {
             System.out.println("ERUDIT\n");
@@ -280,9 +313,11 @@ public class Donjon extends EntréeMontagne {
             switch(choixArtefact) {
                 case 1:
                     artefactChoisi =  "ERUDIT";
+                    break;
                 case 2:
                     Choisi.setPV(Choisi.getPVInit());
                     artefactChoisi =  null;
+                    break;
             }
         }
 

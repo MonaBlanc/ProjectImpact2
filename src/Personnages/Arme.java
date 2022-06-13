@@ -44,7 +44,7 @@ public class Arme {
                 attaque_arme = 10+ (niveau-1)*10;
                 pv_arme = 50+ (niveau-1)*10;
                 défense_arme = 10+ (niveau-1)*10;
-                maîtriseElem_arme = 100+ (niveau-1)*10;
+                maîtriseElem_arme = 60+ (niveau-1)*10;
                 break;
         }
     }

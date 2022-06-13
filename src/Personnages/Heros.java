@@ -25,11 +25,11 @@ public class Heros {
             this.niveau = niveau;
             this.arme = arme;
             this.element = element;
-            attaque_total = 40 + arme.attaque_arme ;
-            pv_total = 300 + arme.pv_arme;
-            pv_total_init = 300 + arme.pv_arme;
-            défense_total = 20 + arme.défense_arme;
-            maîtriseElem_total = 0 + arme.maîtriseElem_arme;
+            attaque_total = 40 + arme.attaque_arme + (niveau+1)*10;
+            pv_total = 300 + arme.pv_arme + (niveau+1)*10;
+            pv_total_init = 300 + arme.pv_arme + (niveau+1)*10;
+            défense_total = 20 + arme.défense_arme + (niveau+1)*10;
+            maîtriseElem_total = 0 + arme.maîtriseElem_arme + (niveau+1)*10;
         }
 
 
