@@ -271,7 +271,6 @@ public class Evenement implements GestionCombat {
                 case 4 -> {
                     System.out.println("\nVous passez votre tour ! Vos PV remontent, mais vous ne ferez pas de dégats...\n\n");
                     user.setPV(user.getPV() + 100);
-                    défense(user, cible);
                 }
                 default -> {
                     break;
