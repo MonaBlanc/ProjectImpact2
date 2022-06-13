@@ -264,7 +264,6 @@ public class Evenement implements GestionCombat {
                 case 4 -> {
                     System.out.println("\nVous passez votre tour ! Vos PV remontent, mais vous ne ferez pas de dégats...\n\n");
                     NomHeros.setPV(NomHeros.getPV() + 100);
-                    défense(NomHeros, cible);
                 }
                 default -> {
                     System.out.println("\n Merci d'entrer une valeur valide !\n\n");
@@ -279,6 +278,7 @@ public class Evenement implements GestionCombat {
         }
         else {
             System.out.println("Vous êtes mort... Retour à la case départ. \n\n");
+
             NomHeros.setPV(NomHeros.getPVInit());
             Display EcranTitre = new Display();
             EcranTitre.displayMenu(NomHeros);
