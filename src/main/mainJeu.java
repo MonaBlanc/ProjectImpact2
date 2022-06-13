@@ -1,12 +1,10 @@
 package main;
 
 import Personnages.Heros;
-import main.*;
-import static main.Clear.clear;
 import java.util.Scanner;
 
 
-public class mainJeu {
+public class mainJeu extends Clear{
 
     public static void main(String[] args){
             Scanner scanner = new Scanner(System.in);

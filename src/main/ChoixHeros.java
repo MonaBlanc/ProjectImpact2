@@ -24,17 +24,17 @@ public class ChoixHeros {
         Scanner selectionUser = new Scanner(System.in);  // Create a Scanner object
 
         do {
-            System.out.println("Mais, je ne vous ai pas demande voyageur, qui incarnerez-vous");
-            System.out.println("[1] Un personnage de la classe claymore"); //TODO : Qualifier chacune des classes
-            System.out.println("[2] Un personnage de la classe archer");
-            System.out.println("[3] Un personnage de la classe mage");
-            System.out.println("[4] Un personnage de la classe epeiste");
-            System.out.println("[5] Un personnage de la classe lancier");
+            System.out.println("\t- Ecran de selection du heros -");
+            System.out.println("[1] - Un personnage de la classe claymore"); //TODO : Qualifier chacune des classes
+            System.out.println("[2] - Un personnage de la classe archer");
+            System.out.println("[3] - Un personnage de la classe mage");
+            System.out.println("[4] - Un personnage de la classe epeiste");
+            System.out.println("[5] - Un personnage de la classe lancier");
             classeChoisie = selectionUser.nextLine().charAt(0);
             switch(classeChoisie) {
                 case '1':
                     clear();
-                    System.out.println("Votre personnage appartiendra a la classe claymore.\n " +
+                    System.out.println("Votre personnage appartiendra a la classe claymore.\n" +
                             "Par chance, nous avons deux mages prêts à l'aventure !\n" +
                             "[1] - Chongyun, le claymore cryo.\n" +
                             "[2] - Beidou, la claymore electro.\n" +
@@ -63,7 +63,7 @@ public class ChoixHeros {
                     break;
                 case '2':
                     clear();
-                    System.out.println("Votre personnage appartiendra a la classe archer.\n " +
+                    System.out.println("Votre personnage appartiendra a la classe archer.\n" +
                             "Par chance, nous avons deux archers prêts à l'aventure !\n" +
                             "[1] - Ganyu, l'archere cryo.\n" +
                             "[2] - Yoimiya, l'archere pyro.\n" +
@@ -92,7 +92,7 @@ public class ChoixHeros {
                     break;
                 case '3':
                     clear();
-                    System.out.println("Votre personnage appartiendra a la classe mage.\n " +
+                    System.out.println("Votre personnage appartiendra a la classe mage.\n" +
                             "Par chance, nous avons deux mages prêts à l'aventure !\n" +
                             "[1] - Mona, la mage hydro.\n" +
                             "[2] - Ninguangg, la mage geo.\n" +
@@ -121,7 +121,7 @@ public class ChoixHeros {
                     break;
                 case '4':
                     clear();
-                    System.out.println("Votre personnage appartiendra a la classe epeiste.\n " +
+                    System.out.println("Votre personnage appartiendra a la classe epeiste.\n" +
                             "Par chance, nous avons deux epeistes prêts à l'aventure !\n" +
                             "[1] - Xingqiu, l'epeiste hydro.\n" +
                             "[2] - Jean, l'epeiste anemo.\n" +
@@ -150,7 +150,7 @@ public class ChoixHeros {
                     break;
                 case '5':
                     clear();
-                    System.out.println("Votre personnage appartiendra a la classe lancier.\n " +
+                    System.out.println("Votre personnage appartiendra a la classe lancier.\n" +
                             "Par chance, nous avons deux lanciers prêts à l'aventure !\n" +
                             "[1] - Xiao, le lancier anemo.\n" +
                             "[2] - Hu tao, la lanciere pyro.\n" +

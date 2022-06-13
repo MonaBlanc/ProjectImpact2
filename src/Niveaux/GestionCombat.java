@@ -1,6 +1,7 @@
 package Niveaux;
 import Personnages.*;
 
+//Utile si implémentation d'un mode de jeu en version Aventure
 public interface GestionCombat {
     void monterExp(final int exp, final Heros NomHeros);
     boolean estVaincu(final String camp, final Heros NomHeros);

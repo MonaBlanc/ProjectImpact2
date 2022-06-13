@@ -6,22 +6,16 @@ import Personnages.Heros;
 import java.util.Scanner;
 
 
-public class Display {
+public class Display extends Clear {
 
     public Display(){
 
     }
 
     public void displayOpening() {
-        String opening = "Un archipel isole. L'Ouest lointain de Teyvat. Surpasses les éclairs intarissables d'Inazuma et fais un premier pas vers ces îles d'érables rouges et de cerisiers. Il va falloir franchir des forêts et montagnes pleines de secrets avant de pouvoir témoigner de l'Eternité poursuivie par son Excellence, la grande Raiden Shogun.";
+        String opening = "Un archipel isolé. L'Ouest lointain de Teyvat. Surpassez les éclairs intarissables d'Inazuma et faites un premier pas vers ces îles d'érables rouges et de cerisiers. Il va falloir franchir des forêts et montagnes pleines de secrets avant de pouvoir témoigner de l'Eternité poursuivie par son Excellence, la grande Raiden Shogun.";
         String wrappedOpening = wrapTexte(opening);
         System.out.println(wrappedOpening);
-    }
-
-    public void displayBeginningForet() {
-        String beginningF = "Vous entrez dans la foret torturée, vous allez a présent faire face a plusieurs choix qui déterminerons votre destin, dont vous seul (ainsi que votre dé) êtes maître.";
-        String wrappedbeginningF = wrapTexte(beginningF);
-        System.out.println(wrappedbeginningF);
     }
 
     public void displayBeginningMontagne() {
@@ -32,10 +26,9 @@ public class Display {
 
     public Heros displaySelection() {
         clear();
-        System.out.println("Ecran de selection du heros");
+        System.out.println("Je ne vous ai pas demandé voyageur, qui incarnerez-vous ?\n\n\n");
         ChoixHeros premierChoix = new ChoixHeros();
-        Heros Choisi = premierChoix.selection();
-        return Choisi;
+        return premierChoix.selection();
     }
 
         public String wrapTexte(String texte) {
@@ -62,15 +55,9 @@ public class Display {
         return texteFinal;
     }
 
-    public void clear(){
-        for(int i = 0; i < 15; i++) //fonction clear
-        {
-            System.out.println("\b");
-        }
-    }
 
     public void displayMenu(Heros Choisi) {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int choix = 0;
 
         System.out.println("Quel sera votre choix ?");
@@ -78,7 +65,7 @@ public class Display {
         System.out.println("[2] - Je veux changer de heros");
         System.out.println("[3] - Je veux partir. ");
         System.out.println("Taper votre choix :                                       ");
-        choix=Integer.parseInt(sc.nextLine());// <--- ligne modifiée
+        choix = Integer.parseInt(sc.nextLine());// <--- ligne modifiée
         switch (choix) {
             case 1 -> {
                 clear();

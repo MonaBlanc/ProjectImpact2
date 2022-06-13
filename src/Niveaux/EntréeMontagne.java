@@ -13,7 +13,7 @@ public class EntréeMontagne {
     }
 
     public void arrivee(Heros Héros) {
-        Donjon Shogun = new Donjon(Héros);
+        Donjon Shogun = new Donjon();
         int choix;
         int choixNiveau1;
         int choixNiveau2;
@@ -41,6 +41,9 @@ public class EntréeMontagne {
                 Evenement premierCombat = new Evenement(Héros, cible, null);
                 premierCombat.debutCombat(Héros, cible);
             }
+            default -> {
+                System.out.println("Merci de faire un choix !\n");
+            }
         }
 
         System.out.println("Vous sentez qu'une force commence à vous donner du courage ! La Shogun \nvous regarde surement, du haut de la montagne, avec mépris. N'ayez crainte \nvoyageur, le donjon d'entraînement est là pour ça !");
@@ -59,6 +62,9 @@ public class EntréeMontagne {
             case '2' -> {
                 clear();
                 Shogun.PremierNiveau(Héros);
+            }
+            default -> {
+                System.out.println("Merci de faire un choix !\n");
             }
         }
 
@@ -79,6 +85,9 @@ public class EntréeMontagne {
                 clear();
                 Shogun.DeuxiemeNiveau(Héros);
             }
+            default -> {
+                System.out.println("Merci de faire un choix !\n");
+            }
         }
 
         System.out.println("Déjà la moitié du chemin... Le nombre ne fait pas la force voyageur ! \nVos adversaires ne seront que plus robustes !");
@@ -98,6 +107,9 @@ public class EntréeMontagne {
                 clear();
                 Shogun.TroisiemeNiveau(Héros);
             }
+            default -> {
+                System.out.println("Merci de faire un choix !\n");
+            }
         }
 
         System.out.println("C'était le dernier combat d'entrainement... Plus que quelques marches avant \nd'atteindre votre but initial et d'avoir l'honneur d'affronter\nla grande Shogun !");
@@ -116,6 +128,9 @@ public class EntréeMontagne {
             case '2' -> {
                 clear();
                 Shogun.Shogun(Héros);
+            }
+            default -> {
+                System.out.println("Merci de faire un choix !\n");
             }
         }
 

@@ -4,22 +4,22 @@ public class Ennemis {
 
     protected String nom;
     protected String element;
-    public int niveau; //Allant de 1 à 20
+    public int niveau; //Allant de 10 en 10 en général
     protected int attaque_base;
     protected int pv_base;
     protected int défense_base;
     protected int maîtriseElem_base;
 
-    //TODO : En fonction du type d'ennemi
+    //TODO : En fonction du type d'ennemi avec un switch case
     public Ennemis(String nom, int niveau, String element)
     {
         this.nom = nom;
         this.niveau = niveau;
         this.element = element;
-        attaque_base = 15 + niveau; // + dégât de l'arme
-        pv_base = 290 + niveau; // + dégât de l'arme
-        défense_base = 5 + niveau; // + dégât de l'arme
-        maîtriseElem_base = 5 + niveau; // + dégât de l'arme
+        attaque_base = 20 + niveau;
+        pv_base = 290 + niveau;
+        défense_base = 5 + niveau;
+        maîtriseElem_base = 10 + niveau;
     }
 
     public void displayStats(){
