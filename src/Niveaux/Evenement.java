@@ -1,5 +1,5 @@
 package Niveaux;
-import Personnages.*;
+import Objets.*;
 import main.Display;
 
 import java.util.Scanner;
@@ -153,7 +153,7 @@ public class Evenement implements GestionCombat {
         int Lancer6 = LancerDé.lancer6();
         if (Lancer6 == 6) {
             System.out.println("Coup Critique !");
-            int degatInflige = (int) (NomHeros.getAttaque() + NomHeros.getmaîtriseElem() * faiblesse(cible.getElementEnnemi(), NomHeros.getElement())) * 2;
+            int degatInflige = (int) (NomHeros.getAttaque() + NomHeros.getMaitriseElem() * faiblesse(cible.getElement(), NomHeros.getElement())) * 2;
             degat(degatInflige,"Cible", NomHeros, cible);
             System.out.println("Vous faites " + degatInflige + " de degat ! ");
             if (estVaincu("Ennemi",NomHeros)) {
@@ -166,7 +166,7 @@ public class Evenement implements GestionCombat {
             return true;
         } else  {
             System.out.println("Vous attaquez l'ennemi !");
-            int degatInflige = (int) (NomHeros.getAttaque() + NomHeros.getmaîtriseElem() * faiblesse(cible.getElementEnnemi(), NomHeros.getElement()));
+            int degatInflige = (int) (NomHeros.getAttaque() + NomHeros.getMaitriseElem() * faiblesse(cible.getElement(), NomHeros.getElement()));
             //TODO : Déduire les dégats des pv de l'ennemi
             degat(degatInflige,"Cible", NomHeros, cible);
             System.out.println("\nVous faites " + degatInflige + " de degat ! \n");
@@ -184,7 +184,7 @@ public class Evenement implements GestionCombat {
         int Lancer6 = LancerDé.lancer6();
         if (Lancer6 == 6) {
             System.out.println("Coup Critique !");
-            int degatInflige = (int) (cible.getAttaque() + cible.getmaîtriseElem() * faiblesse(cible.getElementEnnemi(), NomHeros.getElement())) * 2;
+            int degatInflige = (int) (cible.getAttaque() + cible.getMaitriseElem() * faiblesse(cible.getElement(), NomHeros.getElement())) * 2;
             degat(degatInflige,"Héros", NomHeros, cible);
             System.out.println("Vous perdez " + degatInflige + " PV ! ");
             System.out.println("\nVous avez " + NomHeros.getPV() + " PV, votre ennemi en a " + cible.getPV() + "! \n");
@@ -198,7 +198,7 @@ public class Evenement implements GestionCombat {
             return true;
         } else {
             System.out.println("L'ennemi vous attaque !");
-            int degatInflige = (int) (cible.getAttaque() + cible.getmaîtriseElem() * faiblesse(cible.getElementEnnemi(), NomHeros.getElement()));
+            int degatInflige = (int) (cible.getAttaque() + cible.getMaitriseElem() * faiblesse(cible.getElement(), NomHeros.getElement()));
             degat(degatInflige,"Héros", NomHeros, cible);
             System.out.println("Vous perdez " + degatInflige + " PV ! ");
             System.out.println("\nVous avez " + NomHeros.getPV() + " PV, votre ennemi en a " + cible.getPV() + "! \n");
@@ -229,7 +229,7 @@ public class Evenement implements GestionCombat {
                     NomHeros.setPV(newPV);
                     break;
                 case "ERUDIT" :
-                    int newME = NomHeros.getmaîtriseElem() + 40;
+                    int newME = NomHeros.getMaitriseElem() + 40;
                     NomHeros.setMaitriseElem(newME);
                     newPV = NomHeros.getPV() / 2;
                     NomHeros.setPV(newPV);

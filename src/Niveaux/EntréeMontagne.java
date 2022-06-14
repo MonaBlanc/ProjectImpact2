@@ -1,10 +1,10 @@
 package Niveaux;
 import main.Display;
-import Personnages.*;
+import Objets.*;
 
 import java.util.Scanner;  // Import the Scanner class
 
-import static main.Clear.clear;
+import static main.Graphics.clear;
 
 public class EntréeMontagne {
 

@@ -1,5 +1,5 @@
 package Niveaux;
-import Personnages.*;
+import Objets.*;
 
 //Utile si implémentation d'un mode de jeu en version Aventure
 public interface GestionCombat {

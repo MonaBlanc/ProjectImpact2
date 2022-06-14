@@ -1,4 +1,4 @@
-package Personnages;
+package Objets;
 
 public class Arme {
     int niveau;
