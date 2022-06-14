@@ -4,31 +4,51 @@ import main.Display;
 
 import java.util.Scanner;
 
+/**
+ * Classe Evenement qui gère les actions possibles par l'ennemi ou le héros
+ */
 public class Evenement implements GestionCombat {
 
+    /*
+    Variables locales
+     */
     Ennemis cible;
-
-
     String choixArtefact;
 
-    public Evenement(Heros NomHeros, Ennemis NomEnnemi, String Choisi){
-        this.cible = NomEnnemi;
-        this.choixArtefact = Choisi;
+    /**
+     * Constructeur
+     * @param heros Aventurier qui part au combat
+     * @param ennemi Ennemi envoyé au combat
+     * @param artefact
+     */
+    public Evenement(Heros heros, Ennemis ennemi, String artefact){
+        this.cible = ennemi;
+        this.choixArtefact = artefact;
     }
 
-
-    public void monterExp(int exp, Heros NomHeros) {
+    /**
+     * Fonction qui monte l'expérience du héros
+     * @param exp Expérience gagné
+     * @param heros On envoie l'aventurier à monter
+     */
+    public void monterExp(int exp, Heros heros) {
         int cap = 1000;
-        NomHeros.exp += exp;
-        if (NomHeros.exp > cap){
-            NomHeros.exp -=  NomHeros.exp%cap;
-            NomHeros.niveau += NomHeros.exp%cap;
+        heros.getArme().setExp(heros.getArme().getExp()+exp);
+        if (heros.getArme().getExp() > cap){
+            heros.getArme().setExp(heros.getArme().getExp() - (exp - heros.getArme().getExp()%cap));
+            heros.getArme().setNiveau(heros.getArme().getNiveau() + heros.getArme().getExp()%cap);
         }
     }
 
-    public boolean estVaincu(String camp, Heros NomHeros) {
+    /**
+     * Fonction qui test si un des camps est vaincu ou non
+     * @param camp On envoie le camp que l'on teste
+     * @param heros On envoie l'aventurier à tester
+     * @return renvoie l'état du participant
+     */
+    public boolean estVaincu(String camp, Heros heros) {
         if (camp == "Héros"){
-            if (NomHeros.getPV()<=0){
+            if (heros.getPV()<=0){
                 return true;
             }
             else return false;
@@ -42,7 +62,12 @@ public class Evenement implements GestionCombat {
 
     }
 
-
+    /**
+     * Fonction qui test les faiblesses entre les deux camps
+     * @param element Element du héros à tester
+     * @param element_ennemi Element de l'ennemi à tester
+     * @return on renvoit un facteur qui sera appliqué lors du calcul des dégats
+     */
     public double faiblesse(String element, String element_ennemi) {
 
         double faiblesse = 0;
@@ -137,10 +162,17 @@ public class Evenement implements GestionCombat {
         return faiblesse;
     }
 
-    public void degat(int degatInflige, String camp, Heros NomHeros, Ennemis cible) {
+    /**
+     * Fonction qui applique les dats au camp choisi
+     * @param degatInflige Dégâts déjà calculés à appliquer
+     * @param camp Camp auquel on applique les dégâts
+     * @param heros Héros participant au combat
+     * @param cible Ennemi envoyé au combat
+     */
+    public void degat(int degatInflige, String camp, Heros heros, Ennemis cible) {
         if(camp == "Héros"){
-            int newPV = NomHeros.getPV() - degatInflige;
-            NomHeros.setPV(newPV);
+            int newPV = heros.getPV() - degatInflige;
+            heros.setPV(newPV);
         }
         else{
             int newPVCible = cible.getPV() - degatInflige;
@@ -148,91 +180,99 @@ public class Evenement implements GestionCombat {
         }
     }
 
-    public boolean attaque(Heros NomHeros, Ennemis cible) {
+    /**
+     * Gestion de l'attaque du héros envers l'ennemi
+     * @param heros Héros participant au combat
+     * @param cible Ennemi envoyé au combat
+     */
+    public void attaque(Heros heros, Ennemis cible) {
+        /*
+        Gestion aléatoire : (1/6) Coup critique et (1/6) Attaque manquée tandis que (4/6) pour Attaque normale
+         */
         LancerDe LancerDé = new LancerDe();
         int Lancer6 = LancerDé.lancer6();
         if (Lancer6 == 6) {
             System.out.println("Coup Critique !");
-            int degatInflige = (int) (NomHeros.getAttaque() + NomHeros.getMaitriseElem() * faiblesse(cible.getElement(), NomHeros.getElement())) * 2;
-            degat(degatInflige,"Cible", NomHeros, cible);
+            int degatInflige = (int) (heros.getAttaque() + heros.getMaitriseElem() * faiblesse(cible.getElement(), heros.getElement())) * 2;
+            degat(degatInflige,"Cible", heros, cible);
             System.out.println("Vous faites " + degatInflige + " de degat ! ");
-            if (estVaincu("Ennemi",NomHeros)) {
+            if (estVaincu("Ennemi",heros)) {
                 System.out.println("Ennemi vaincu !");
-                return false;
             }
         }
         else if (Lancer6 == 1) {
             System.out.println("Dommage ! Attaque manquée...");
-            return true;
         } else  {
             System.out.println("Vous attaquez l'ennemi !");
-            int degatInflige = (int) (NomHeros.getAttaque() + NomHeros.getMaitriseElem() * faiblesse(cible.getElement(), NomHeros.getElement()));
+            int degatInflige = (int) (heros.getAttaque() + heros.getMaitriseElem() * faiblesse(cible.getElement(), heros.getElement()));
             //TODO : Déduire les dégats des pv de l'ennemi
-            degat(degatInflige,"Cible", NomHeros, cible);
+            degat(degatInflige,"Cible", heros, cible);
             System.out.println("\nVous faites " + degatInflige + " de degat ! \n");
-            if (estVaincu("Ennemi", NomHeros)) {
+            if (estVaincu("Ennemi", heros)) {
                 System.out.println("Ennemi vaincu !");
-                return false;
             }
         }
-        return true;
-
     }
 
-    public boolean défense(Heros NomHeros, Ennemis cible) {
+    /**
+     * Gestion de l'attaque de l'ennemi envers le héros
+     * @param heros Héros participant au combat
+     * @param cible Ennemi envoyé au combat
+     */
+    public void défense(Heros heros, Ennemis cible) {
         LancerDe LancerDé = new LancerDe();
         int Lancer6 = LancerDé.lancer6();
         if (Lancer6 == 6) {
             System.out.println("Coup Critique !");
-            int degatInflige = (int) (cible.getAttaque() + cible.getMaitriseElem() * faiblesse(cible.getElement(), NomHeros.getElement())) * 2;
-            degat(degatInflige,"Héros", NomHeros, cible);
+            int degatInflige = (int) (cible.getAttaque() + cible.getMaitriseElem() * faiblesse(cible.getElement(), heros.getElement())) * 2;
+            degat(degatInflige,"Héros", heros, cible);
             System.out.println("Vous perdez " + degatInflige + " PV ! ");
-            System.out.println("\nVous avez " + NomHeros.getPV() + " PV, votre ennemi en a " + cible.getPV() + "! \n");
-            if (estVaincu("Héros", NomHeros)) {
+            System.out.println("\nVous avez " + heros.getPV() + " PV, votre ennemi en a " + cible.getPV() + "! \n");
+            if (estVaincu("Héros", heros)) {
                 System.out.println("Vous avez perdu !");
-                return false;
             }
         }
         else if (Lancer6 == 1) {
             System.out.println("Attaque manquée...");
-            return true;
         } else {
             System.out.println("L'ennemi vous attaque !");
-            int degatInflige = (int) (cible.getAttaque() + cible.getMaitriseElem() * faiblesse(cible.getElement(), NomHeros.getElement()));
-            degat(degatInflige,"Héros", NomHeros, cible);
+            int degatInflige = (int) (cible.getAttaque() + cible.getMaitriseElem() * faiblesse(cible.getElement(), heros.getElement()));
+            degat(degatInflige,"Héros", heros, cible);
             System.out.println("Vous perdez " + degatInflige + " PV ! ");
-            System.out.println("\nVous avez " + NomHeros.getPV() + " PV, votre ennemi en a " + cible.getPV() + "! \n");
-            if (estVaincu("Héros", NomHeros)) {
+            System.out.println("\nVous avez " + heros.getPV() + " PV, votre ennemi en a " + cible.getPV() + "! \n");
+            if (estVaincu("Héros", heros)) {
                 System.out.println("Vous avez perdu !");
-                return false;
             }
         }
-        return true;
-
     }
 
-    public void debutCombat(Heros NomHeros, Ennemis cible){
+    /**
+     * Fonction avec le déroulement d'un combat
+     * @param heros Héros participant au combat
+     * @param cible Ennemi envoyé au combat
+     */
+    public void debutCombat(Heros heros, Ennemis cible){
         Scanner selectionUser = new Scanner(System.in);  // Create a Scanner object
         int choixDebut;
         if(choixArtefact != null){
             switch (choixArtefact){
                 case "SACRIFICIEUR":
-                    int newAttaque = NomHeros.getAttaque() + 50;
-                    NomHeros.setAttaque(newAttaque);
-                    int newPV = NomHeros.getPV() / 2;
-                    NomHeros.setPV(newPV);
+                    int newAttaque = heros.getAttaque() + 50;
+                    heros.setAttaque(newAttaque);
+                    int newPV = heros.getPV() / 2;
+                    heros.setPV(newPV);
                     break;
                 case "COEURDUGARDIEN" :
-                    newAttaque = NomHeros.getAttaque() - 20;
-                    NomHeros.setAttaque(newAttaque);
-                    newPV = NomHeros.getPV() + 300;
-                    NomHeros.setPV(newPV);
+                    newAttaque = heros.getAttaque() - 20;
+                    heros.setAttaque(newAttaque);
+                    newPV = heros.getPV() + 300;
+                    heros.setPV(newPV);
                     break;
                 case "ERUDIT" :
-                    int newME = NomHeros.getMaitriseElem() + 40;
-                    NomHeros.setMaitriseElem(newME);
-                    newPV = NomHeros.getPV() / 2;
-                    NomHeros.setPV(newPV);
+                    int newME = heros.getMaitriseElem() + 40;
+                    heros.setMaitriseElem(newME);
+                    newPV = heros.getPV() / 2;
+                    heros.setPV(newPV);
                     break;
                 case default :
                     break;
@@ -246,36 +286,36 @@ public class Evenement implements GestionCombat {
             switch (choixDebut) {
                 case 1 ->
                     //lire les statistique du héros/ de l'ennemi
-                        NomHeros.displayStats();
+                        heros.displayStats();
                 case 2 -> cible.displayStats();
                 case 3 -> {
-                    attaque(NomHeros, cible);
-                    if (!estVaincu("Cible", NomHeros)) {
-                        défense(NomHeros, cible);
+                    attaque(heros, cible);
+                    if (!estVaincu("Cible", heros)) {
+                        défense(heros, cible);
                     }
 
                 }
                 case 4 -> {
                     System.out.println("\nVous passez votre tour ! Vos PV remontent, mais vous ne ferez pas de dégats...\n\n");
-                    NomHeros.setPV(NomHeros.getPV() + 100);
+                    heros.setPV(heros.getPV() + 100);
                 }
                 default -> {
                     System.out.println("\n Merci d'entrer une valeur valide !\n\n");
                     ;
                 }
             }
-        }while(!estVaincu("Ennemi", NomHeros) && !estVaincu("Héros", NomHeros));
+        }while(!estVaincu("Ennemi", heros) && !estVaincu("Héros", heros));
 
-        if (estVaincu("Ennemi", NomHeros)) {
+        if (estVaincu("Ennemi", heros)) {
             System.out.println("Vous avez gagné le combat ! \n\n");
-            monterExp(500, NomHeros);
+            monterExp(500, heros);
         }
         else {
             System.out.println("Vous êtes mort... Retour à la case départ. \n\n");
 
-            NomHeros.setPV(NomHeros.getPVInit());
+            heros.setPV(heros.getPVInit());
             Display EcranTitre = new Display();
-            EcranTitre.displayMenu(NomHeros);
+            EcranTitre.displayMenu(heros);
 
         }
 

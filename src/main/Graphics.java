@@ -1,7 +1,7 @@
 package main;
 
 /**
- * Classe pouvant permettre plusieurs types de "nettoiement" d'écran
+ * Classe pouvant permettre plusieurs types de gestion d'écran
  */
 public class Graphics {
 

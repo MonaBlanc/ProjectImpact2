@@ -64,7 +64,7 @@ public class ChoixHeros extends Graphics{
                             /*
                             Création du héros
                              */
-                            Heros Chongyun = new Heros("Chongyun", 1, claymoreDuDebutant, "cryo");
+                            Heros Chongyun = new Heros("Chongyun", claymoreDuDebutant, "cryo");
                             System.out.println("Heros choisi ! Vous incarnerz Chongyn pour cette aventure.");
                             /*
                             On renvoie le héros sélectionné
@@ -75,7 +75,7 @@ public class ChoixHeros extends Graphics{
                             /*
                             Création du héros
                              */
-                            Heros Beidou = new Heros("Beidou", 1, claymoreDuDebutant, "electro");
+                            Heros Beidou = new Heros("Beidou", claymoreDuDebutant, "electro");
                             System.out.println("Heros choisi ! Vous incarnerz Beidou pour cette aventure.");
                             /*
                             On renvoie le héros sélectionné
@@ -111,12 +111,12 @@ public class ChoixHeros extends Graphics{
                     int selectionArcher = selectionUtilisateur.nextLine().charAt(0);
                     switch (selectionArcher) {
                         case '1' -> {
-                            Heros Ganyu = new Heros("Ganyu", 1, arcDuDebutant, "cryo");
+                            Heros Ganyu = new Heros("Ganyu", arcDuDebutant, "cryo");
                             System.out.println("Heros choisi ! Vous incarnerz Ganyu pour cette aventure.");
                             return Ganyu;
                         }
                         case '2' -> {
-                            Heros Yoimiya = new Heros("Yoimiya", 1, arcDuDebutant, "pyro");
+                            Heros Yoimiya = new Heros("Yoimiya", arcDuDebutant, "pyro");
                             System.out.println("Heros choisi ! Vous incarnerz Yoimiya pour cette aventure.");
                             return Yoimiya;
                         }
@@ -143,12 +143,12 @@ public class ChoixHeros extends Graphics{
                     int selectionMage = selectionUtilisateur.nextLine().charAt(0);
                     switch (selectionMage) {
                         case '1' -> {
-                            Heros Mona = new Heros("Mona", 1, mageDuDebutant, "hydro");
+                            Heros Mona = new Heros("Mona", mageDuDebutant, "hydro");
                             System.out.println("Heros choisi ! Vous incarnerz Mona pour cette aventure.");
                             return Mona;
                         }
                         case '2' -> {
-                            Heros Ninguangg = new Heros("Ninguangg", 1, mageDuDebutant, "geo");
+                            Heros Ninguangg = new Heros("Ninguangg", mageDuDebutant, "geo");
                             System.out.println("Heros choisi ! Vous incarnerz Ninguangg pour cette aventure.");
                             return Ninguangg;
                         }
@@ -175,12 +175,12 @@ public class ChoixHeros extends Graphics{
                     int selectionEpeiste = selectionUtilisateur.nextLine().charAt(0);
                     switch (selectionEpeiste) {
                         case '1' -> {
-                            Heros Xingqiu = new Heros("Xingqiu", 1, epeeDuDebutant, "hydro");
+                            Heros Xingqiu = new Heros("Xingqiu", epeeDuDebutant, "hydro");
                             System.out.println("Heros choisi ! Vous incarnerz Xingqiu pour cette aventure.");
                             return Xingqiu;
                         }
                         case '2' -> {
-                            Heros Jean = new Heros("Jean", 1, epeeDuDebutant, "anemo");
+                            Heros Jean = new Heros("Jean", epeeDuDebutant, "anemo");
                             System.out.println("Heros choisi ! Vous incarnerz Jean pour cette aventure.");
                             return Jean;
                         }
@@ -207,12 +207,12 @@ public class ChoixHeros extends Graphics{
                     int selectionLancier = selectionUtilisateur.nextLine().charAt(0);
                     switch (selectionLancier)  {
                         case '1' -> {
-                            Heros Xiao = new Heros("Xiao", 1, lanceDuDebutant, "anemo");
+                            Heros Xiao = new Heros("Xiao", lanceDuDebutant, "anemo");
                             System.out.println("Heros choisi ! Vous incarnerz Xiao pour cette aventure.");
                             return Xiao;
                         }
                         case '2' -> {
-                            Heros HuTao = new Heros("HuTao", 1, lanceDuDebutant, "pyro");
+                            Heros HuTao = new Heros("HuTao", lanceDuDebutant, "pyro");
                             System.out.println("Heros choisi ! Vous incarnerz Hu Tao pour cette aventure.");
                             return HuTao;
                         }

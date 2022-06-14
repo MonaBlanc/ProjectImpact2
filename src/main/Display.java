@@ -1,6 +1,6 @@
 package main;
 
-import Niveaux.EntréeMontagne;
+import Niveaux.EntreeMontagne;
 import Objets.Heros;
 
 import java.util.Scanner;
@@ -89,24 +89,24 @@ public class Display extends Graphics {
                 On affiche l'écran d'entrée du donjon
                  */
                 displayBeginningMontagne();
-                EntréeMontagne Arrivee = new EntréeMontagne(choisi);
+                EntreeMontagne Arrivee = new EntreeMontagne();
                 /*
                 On envoie l'aventurier dans la montagne
                  */
-                Arrivee.arrivee(choisi);
+                Arrivee.Montagne(choisi);
             }
             case 2 -> {
                 clear();
                 /*
                 On relance une sélection du héros avec ChoixHeros
                  */
-                System.out.println("Ecran de selection du heros");
-                ChoixHeros premierChoix = new ChoixHeros();
-                choisi = premierChoix.selection();
+                ChoixHeros nouveauChoix = new ChoixHeros();
+                Heros nouveauHeros;
+                nouveauHeros = nouveauChoix.selection();
                 /*
                 Une fois le héros sélectionné, on revient sur le menu principal
                  */
-                displayMenu(choisi);
+                displayMenu(nouveauHeros);
             }
             case 3 -> {
                 clear();

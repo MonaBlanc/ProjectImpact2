@@ -1,19 +1,29 @@
 package Niveaux;
-import main.Display;
+import main.*;
 import Objets.*;
 
-import java.util.Scanner;  // Import the Scanner class
+import java.util.Scanner;
 
 import static main.Graphics.clear;
 
-public class EntréeMontagne {
+/**
+ * Classe qui gère les écrans dans le Donjon
+ */
+public class EntreeMontagne {
 
-    public EntréeMontagne(Heros Héros){
-
+    /**
+     * Constructeur vide
+     */
+    public EntreeMontagne(){
     }
 
-    public void arrivee(Heros Héros) {
-        Donjon Shogun = new Donjon();
+    /**
+     * Ecran du donjon à afficher qui gère l'introduction à celui-ci ainsi que les choix de l'utilisateur
+     * @param heros Aventurier sélectionné par l'utilisateur
+     */
+    public void Montagne(Heros heros) {
+
+        Donjon shogun = new Donjon();
         int choix;
         int choixNiveau1;
         int choixNiveau2;
@@ -33,13 +43,13 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Héros);
+                retourEcran.displayMenu(heros);
             }
             case '2' -> {
                 System.out.println("Vous engagez un combat ! Que la chance soit avec vous, cher voyageur.\n\n");
                 Ennemis cible = new Ennemis("blob", 2, "anemo");
-                Evenement premierCombat = new Evenement(Héros, cible, null);
-                premierCombat.debutCombat(Héros, cible);
+                Evenement premierCombat = new Evenement(heros, cible, null);
+                premierCombat.debutCombat(heros, cible);
             }
             default -> {
                 System.out.println("Merci de faire un choix !\n");
@@ -57,11 +67,11 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Héros);
+                retourEcran.displayMenu(heros);
             }
             case '2' -> {
                 clear();
-                Shogun.PremierNiveau(Héros);
+                shogun.PremierNiveau(heros);
             }
             default -> {
                 System.out.println("Merci de faire un choix !\n");
@@ -79,11 +89,11 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Héros);
+                retourEcran.displayMenu(heros);
             }
             case '2' -> {
                 clear();
-                Shogun.DeuxiemeNiveau(Héros);
+                shogun.DeuxiemeNiveau(heros);
             }
             default -> {
                 System.out.println("Merci de faire un choix !\n");
@@ -101,11 +111,11 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Héros);
+                retourEcran.displayMenu(heros);
             }
             case '2' -> {
                 clear();
-                Shogun.TroisiemeNiveau(Héros);
+                shogun.TroisiemeNiveau(heros);
             }
             default -> {
                 System.out.println("Merci de faire un choix !\n");
@@ -123,11 +133,11 @@ public class EntréeMontagne {
             case '1' -> {
                 System.out.println("Vous vous enfuyez ! Vous voilà de retour au menu de départ. N'hésitez pas à prendre une pause :)\n\n");
                 Display retourEcran = new Display();
-                retourEcran.displayMenu(Héros);
+                retourEcran.displayMenu(heros);
             }
             case '2' -> {
                 clear();
-                Shogun.Shogun(Héros);
+                shogun.Shogun(heros);
             }
             default -> {
                 System.out.println("Merci de faire un choix !\n");
@@ -135,24 +145,33 @@ public class EntréeMontagne {
         }
 
     }
-
     public String wrapTexte(String texte) {
-        final int largeurMax = 70;
+        //On peut modifier la largeur de la justification avec largeurMax
+        int largeurMax = 99;
+
+        //On créé un tableau qui va stocker et séparer notre texte
         String[] separationTexte = texte.split("");
+        //Valeur finale renvoyée
         String texteFinal = "";
         String ligne = "";
 
-        for (String s : separationTexte) {
+        //On parcourt notre texte tant qu'il n'est pas fini
+        for (int i = 0; i < separationTexte.length; i++) {
             if (ligne.isEmpty()) {
-                ligne += s;
-            } else if (ligne.length() + s.length() < largeurMax) {
-                ligne += s;
+                ligne += separationTexte[i];
+            } else if (ligne.length() + separationTexte[i].length() <= largeurMax) { //On sépare le texte dès que l'on dépasse la largeur indiquée
+                ligne += separationTexte[i];
             } else {
-                texteFinal += ligne + "\n";
+                texteFinal += ligne + "\n"; //On remplit texte final tant que la fonction n'est pas finie
                 ligne = "";
             }
         }
+        if(!ligne.isEmpty()){
+            texteFinal += ligne + "\n"; //On ajoute la dernère ligne
+        }
+        /*
+        On renvoie la version finale du texte justifié
+         */
         return texteFinal;
     }
-
 }
